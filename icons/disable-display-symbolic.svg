@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg7384"
+   height="16.001"
+   width="16"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="video-display-symbolic.svg">
+  <defs
+     id="defs10" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1122"
+     id="namedview8"
+     showgrid="false"
+     inkscape:snap-object-midpoints="false"
+     inkscape:zoom="58.996315"
+     inkscape:cx="4.7602083"
+     inkscape:cy="8.5706432"
+     inkscape:window-x="0"
+     inkscape:window-y="35"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg7384" />
+  <title
+     id="title9167">Gnome Symbolic Icon Theme</title>
+  <metadata
+     id="metadata90">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Gnome Symbolic Icon Theme</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer10"
+     transform="translate(-122,-338)">
+    <path
+       id="rect11749-5"
+       style="block-progression:tb;text-indent:0;color:#bebebe;text-transform:none;fill:#bebebe"
+       d="m124.19 338c-1.2 0-2.19 0.99-2.19 2.19v8.625c0 1.1999 0.9859 2.1875 2.1875 2.1875h11.625c1.2016 0 2.1875-0.98758 2.1875-2.1875v-8.625c-0.01-1.21-1-2.2-2.2-2.2h-11.625zm0 2h11.625c0.1238 0 0.1875 0.0566 0.1875 0.1875v8.625c0 0.1309-0.0637 0.1875-0.1875 0.1875h-11.625c-0.14-0.01-0.2-0.07-0.2-0.2v-8.625c0-0.12 0.06-0.18 0.19-0.18z" />
+    <path
+       id="path11751-2"
+       style="block-progression:tb;text-indent:0;color:#bebebe;text-transform:none;fill:#bebebe"
+       d="m126.91 352a1.0011 1.0011 0 1 0 0.09 2h6a1.0001 1.0001 0 1 0 0 -2h-6a1.0001 1.0001 0 0 0 -0.0937 0z" />
+  </g>
+  <path
+     inkscape:connector-curvature="0"
+     id="path11751-2-8"
+     style="text-indent:0;text-transform:none;block-progression:tb;color:#bebebe;fill:#bebebe"
+     d="M 9.4615532,9.376689 A 1.0011,1.0011 0 1 0 10.812127,7.8988352 L 6.5694862,3.6561941 a 1.0001,1.0001 0 1 0 -1.414214,1.4142131 l 4.24264,4.2426418 a 1.0001,1.0001 0 0 0 0.06626,0.06626 z" />
+  <path
+     inkscape:connector-curvature="0"
+     id="path11751-2-6"
+     style="text-indent:0;text-transform:none;block-progression:tb;color:#bebebe;fill:#bebebe"
+     d="M 5.1238136,7.9620543 A 1.0011,1.0011 0 1 0 6.6016668,9.312628 L 10.844306,5.0699883 A 1.0001,1.0001 0 1 0 9.4300938,3.6557743 l -4.242641,4.242641 a 1.0001,1.0001 0 0 0 -0.066256,0.06626 z" />
+</svg>

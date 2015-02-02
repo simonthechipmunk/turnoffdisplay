@@ -1,0 +1,9 @@
+<schemalist>
+    <schema id="org.gnome.shell.extensions.turnoffdisplay" path="/org/gnome/shell/extensions/turnoffdisplay/">
+        <key name="buttonposition" type="b">
+            <default>false</default>
+            <summary>Position of Menu Button</summary>
+            <description>Sets the button to either be a seperate item or add it to the shutdown/lock controls</description>
+        </key>
+    </schema>
+</schemalist>
