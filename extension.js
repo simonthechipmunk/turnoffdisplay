@@ -24,12 +24,16 @@ const St = imports.gi.St;
 
 // main functionality
 const Main = imports.ui.main;
+const Meta = imports.gi.Meta;
+const Shell = imports.gi.Shell;
+const Mainloop = imports.mainloop;
 
 // menu items
 const PopupMenu = imports.ui.popupMenu;
 
 // utilities for external programs and command line
 const Util = imports.misc.util;
+const GLib = imports.gi.GLib;
 
 // clutter and Gtk
 const Clutter = imports.gi.Clutter;
@@ -46,14 +50,15 @@ const Utils = Me.imports.utils;
 const Settings = Utils._getSettingsSchema();
 
 
-
+// messagetray notifications
+const MessageTray = imports.ui.messageTray;
 
 
 
 
 // define global variables
-let menuitem, button, systemMenu, menuSettings;
-
+let menuitem, button, systemMenu, menuSettings, keybindSettings
+let eventKeybind=null;
 
 
 
@@ -73,12 +78,20 @@ function init() {
 function enable() {
 	// create the menu entry
 	_MenuEntry(true);
+	
+	// set keybinding
+	_SetKeybinding(true);
 
-	// connect to signal "preference changed"
+	// connect to signals "preference changed"
 	menuSettings = Settings.connect('changed::buttonposition', function() { 
 		_MenuEntry(false);
 		_MenuEntry(true);
 	});
+	
+	
+	keybindSettings = Settings.connect('changed::keybinding', function() { 
+		_SetKeybinding(true);	
+	});	
 
 }
 
@@ -87,9 +100,18 @@ function enable() {
 function disable() {
         // disable the menu entry
 	_MenuEntry(false);
+	
+	// remove keybinding
+	_SetKeybinding(false);
 
-	// disconnect from signal "preference changed"
+	// disconnect from signals "preference changed"
 	Settings.disconnect(menuSettings);
+	Settings.disconnect(keybindSettings);
+	
+	// remove timer event
+	if(eventKeybind) {
+		Mainloop.source_remove(eventKeybind);
+	}
 
 }
 
@@ -101,7 +123,7 @@ function disable() {
 //***// extension functions
 
 function _MenuEntry(set) {
-// create/destry the menu entry
+// create/destroy the menu entry
 
 	// enable the entry
 	if(set) {
@@ -167,8 +189,30 @@ function _DisplayOff() {
 // turn off the display
 	systemMenu.menu.itemActivated();
 	//use xset to disable the screen
-        let command = Util.spawn(['xset','dpms','force','off']);
-       	command.activate();
+	let command = Util.spawn(['xset','dpms','force','off']);
+       	command.activate();       
+       	
+}
 
+
+
+
+
+
+function _SetKeybinding(set) {
+// enable keybinding to turn off the display
+		
+	if (Prefs._getKeybinding() != "" && set) {
+		Main.wm.addKeybinding('turnoffdisplay-keybinding', Settings, Meta.KeyBindingFlags.NONE,
+			Shell.KeyBindingMode.NORMAL, function() { 
+				// turn off display after 500ms (workaround! - needs something like 'key-release-event')
+				eventKeybind = GLib.timeout_add(0, 500, _DisplayOff);
+			}, null, null);		
+	}
+		
+	else {
+		Main.wm.removeKeybinding('turnoffdisplay-keybinding');
+	}
+	
 }
 

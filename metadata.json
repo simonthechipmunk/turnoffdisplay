@@ -5,10 +5,11 @@
   "shell-version": [
     "3.10", 
     "3.12", 
-    "3.14"
+    "3.14",
+    "3.16"
   ], 
   "url": "https://github.com/simonthechipmunk/turnoffdisplay", 
   "uuid": "turnoffdisplay@simonthechipmunk.noreply.com", 
   "gettext-domain": "turnoffdisplay",
-  "version": 5
+  "version": 6
 }
