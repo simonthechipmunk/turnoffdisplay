@@ -32,6 +32,8 @@ const Mainloop = imports.mainloop;
 const PopupMenu = imports.ui.popupMenu;
 
 // utilities for external programs and command line
+const Config = imports.misc.config;
+const ShellVersion = Config.PACKAGE_VERSION.split('.');
 const Util = imports.misc.util;
 const GLib = imports.gi.GLib;
 
@@ -57,7 +59,7 @@ const MessageTray = imports.ui.messageTray;
 
 
 // define global variables
-let menuitem, button, systemMenu, menuSettings, keybindSettings
+let menuitem, button, systemMenu, menuSettings, keybindSettings;
 let eventKeybind=null;
 
 
@@ -187,10 +189,11 @@ function _MenuEntry(set) {
 
 function _DisplayOff() {
 // turn off the display
+
+	//close the menu
 	systemMenu.menu.itemActivated();
 	//use xset to disable the screen
-	let command = Util.spawn(['xset','dpms','force','off']);
-       	command.activate();       
+	Util.spawn(['xset','dpms','force','off']);   
        	
 }
 
@@ -203,11 +206,23 @@ function _SetKeybinding(set) {
 // enable keybinding to turn off the display
 		
 	if (Prefs._getKeybinding() != "" && set) {
-		Main.wm.addKeybinding('turnoffdisplay-keybinding', Settings, Meta.KeyBindingFlags.NONE,
-			Shell.KeyBindingMode.NORMAL, function() { 
+	
+		// Shell version management
+		let mode;
+		
+		if (ShellVersion[1] <= 14 ) {
+		mode = Shell.KeyBindingMode.NORMAL;
+		}
+		else if (ShellVersion[1] <= 16) {
+		mode = Shell.ActionMode.NORMAL;
+		}
+
+		
+		Main.wm.addKeybinding('turnoffdisplay-keybinding', Settings, Meta.KeyBindingFlags.NONE, mode, function() { 
 				// turn off display after 500ms (workaround! - needs something like 'key-release-event')
 				eventKeybind = GLib.timeout_add(0, 500, _DisplayOff);
 			}, null, null);		
+			
 	}
 		
 	else {
