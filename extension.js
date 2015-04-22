@@ -38,7 +38,6 @@ const Util = imports.misc.util;
 const GLib = imports.gi.GLib;
 
 // clutter and Gtk
-const Clutter = imports.gi.Clutter;
 const Gtk = imports.gi.Gtk;
 
 // translations
@@ -135,9 +134,9 @@ function _MenuEntry(set) {
 
 			systemMenu = Main.panel.statusArea['aggregateMenu'];
 
-			// create seperate menu button
-	    		menuitem = new PopupMenu.PopupMenuItem("");
-			let icon = new St.Icon({ icon_name: 'disable-display-symbolic', y_align: Clutter.ActorAlign.START, style_class: 'popup-menu-icon' });
+			// create separate menu button
+	    		menuitem = new PopupMenu.PopupBaseMenuItem({ activate: true });
+			let icon = new St.Icon({ icon_name: 'disable-display-symbolic', style_class: 'popup-menu-icon' });
 			let text = new St.Label({ text: _("Display Off"), style_class: "sm-label" });
 			menuitem.actor.add(icon);
 			menuitem.actor.add(text);

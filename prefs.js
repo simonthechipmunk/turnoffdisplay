@@ -74,7 +74,7 @@ function buildPrefsWidget() {
 
 	// add items to the widget frame
 	frame.add( _createSwitchbox( _("Integrate into System Controls (Round Buttons)"), 
-		_("Adds a round button instead of a seperate entry in the Systemmenu") ));
+		_("Adds a round button instead of a separate entry in the Systemmenu") ));
 	frame.add( _createKeybindbox( _("Custom Keybinding"), 
 		_("Set a Keybinding to turn off the Display (Examples: F12, <Super>space, <Ctrl><Alt><Shift>w)") ));	
 	frame.show_all();
