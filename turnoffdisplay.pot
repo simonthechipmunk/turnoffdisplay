@@ -17,14 +17,32 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: extension.js:117 extension.js:130
+#: extension.js:139 extension.js:152
 msgid "Turn off Display"
 msgstr ""
 
-#: prefs.js:70
+#: prefs.js:76
 msgid "Integrate into System Controls (Round Buttons)"
 msgstr ""
 
-#: prefs.js:71
-msgid "Adds a round button instead of a seperate entry in the Systemmenu"
+#: prefs.js:77
+msgid "Adds a round button instead of a separate entry in the Systemmenu"
+msgstr ""
+
+#: prefs.js:78
+msgid "Custom Keybinding"
+msgstr ""
+
+#: prefs.js:79
+msgid ""
+"Set a Keybinding to turn off the Display (Examples: F12, <Super>space, "
+"<Ctrl><Alt><Shift>w)"
+msgstr ""
+
+#: prefs.js:124
+msgid "Keybinding is enabled"
+msgstr ""
+
+#: prefs.js:131
+msgid "Keybinding is disabled. Set a valid Shortcut to enable it"
 msgstr ""
