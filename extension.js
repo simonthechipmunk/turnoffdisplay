@@ -138,7 +138,7 @@ function _MenuEntry(set) {
 			// create seperate menu button
 	    		menuitem = new PopupMenu.PopupMenuItem("");
 			let icon = new St.Icon({ icon_name: 'disable-display-symbolic', y_align: Clutter.ActorAlign.START, style_class: 'popup-menu-icon' });
-			let text = new St.Label({ text: _("Turn off Display"), style_class: "sm-label" });
+			let text = new St.Label({ text: _("Display Off"), style_class: "sm-label" });
 			menuitem.actor.add(icon);
 			menuitem.actor.add(text);
 			menuitem.connect('activate', _DisplayOff);
@@ -151,7 +151,7 @@ function _MenuEntry(set) {
 			systemMenu = Main.panel.statusArea['aggregateMenu']._system;
 
 			// create round button in system control area
-			button = systemMenu._createActionButton('disable-display-symbolic', _("Turn off Display"));
+			button = systemMenu._createActionButton('disable-display-symbolic', _("Display Off"));
 			button.connect('clicked', _DisplayOff);
 			// add the menuentry to the menu
 			systemMenu._actionsItem.actor.insert_child_at_index(button, 4);
