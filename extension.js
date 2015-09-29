@@ -212,7 +212,7 @@ function _SetKeybinding(set) {
 		if (ShellVersion[1] <= 14 ) {
 		mode = Shell.KeyBindingMode.NORMAL;
 		}
-		else if (ShellVersion[1] <= 16) {
+		else if (ShellVersion[1] <= 18) {
 		mode = Shell.ActionMode.NORMAL;
 		}
 
