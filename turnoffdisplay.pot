@@ -1,14 +1,14 @@
 # Translation template for "Turn off Display".
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extension package.
-# Simon Junga <simonthechipmunk@gmx.de>, 2015.
+# Simon Junga <simonthechipmunk at gmx.de>, 2015.
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-25 22:10+0100\n"
+"POT-Creation-Date: 2015-10-04 15:08+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,32 +17,66 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: extension.js:139 extension.js:152
+#: extension.js:163 extension.js:177
 msgid "Display Off"
 msgstr ""
 
-#: prefs.js:76
+#: prefs.js:80
 msgid "Integrate into System Controls (Round Buttons)"
 msgstr ""
 
-#: prefs.js:77
+#: prefs.js:81
 msgid "Adds a round button instead of a separate entry in the Systemmenu"
 msgstr ""
 
-#: prefs.js:78
+#: prefs.js:82
+msgid "Disable Mouse when Screen is turned Off"
+msgstr ""
+
+#: prefs.js:83
+msgid ""
+"Automatically disable all external mouse pointers to prevent the screen from "
+"turning on accidentally."
+msgstr ""
+
+#: prefs.js:86
+msgid "Menu Width adjustment Mode"
+msgstr ""
+
+#: prefs.js:86
+msgid "Select the mode for handling the width of the Main Menu"
+msgstr ""
+
+#: prefs.js:87
+msgid "Off"
+msgstr ""
+
+#: prefs.js:87
+msgid "Automatic"
+msgstr ""
+
+#: prefs.js:87
+msgid "Fixed"
+msgstr ""
+
+#: prefs.js:89
+msgid "Fixed menu size in px."
+msgstr ""
+
+#: prefs.js:93
 msgid "Custom Keybinding"
 msgstr ""
 
-#: prefs.js:79
+#: prefs.js:94
 msgid ""
 "Set a Keybinding to turn off the Display (Examples: F12, <Super>space, "
 "<Ctrl><Alt><Shift>w)"
 msgstr ""
 
-#: prefs.js:124
+#: prefs.js:95
 msgid "Keybinding is enabled"
 msgstr ""
 
-#: prefs.js:131
+#: prefs.js:96
 msgid "Keybinding is disabled. Set a valid Shortcut to enable it"
 msgstr ""

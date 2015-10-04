@@ -1,9 +1,24 @@
 <schemalist>
     <schema id="org.gnome.shell.extensions.turnoffdisplay" path="/org/gnome/shell/extensions/turnoffdisplay/">
-        <key name="buttonposition" type="b">
+        <key name="integrate" type="b">
             <default>false</default>
-            <summary>Position of Menu Button</summary>
-            <description>Sets the button to either be a seperate item or add it to the shutdown/lock controls</description>
+            <summary>Round Button</summary>
+            <description>Sets the button to either be a separate item or add it to the shutdown/lock controls</description>
+        </key>
+        <key name="handlemouse" type="b">
+            <default>false</default>
+            <summary>Handle Mouse</summary>
+            <description>Turns off external mouse pointers when screen is disabled</description>
+        </key>
+        <key name="handlemenumode" type="s">
+            <default>'auto'</default>
+            <summary>Menu Handling Mode</summary>
+            <description>The mode for handling the main menu width</description>
+        </key>
+        <key name="fixmenuwidth" type="i">
+            <default>450</default>
+            <summary>Fixed Menu Width</summary>
+            <description>Fixed width of the aggregated menu</description>
         </key>
         <key name="turnoffdisplay-keybinding" type="as">
       	    <default><![CDATA[['']]]></default>
