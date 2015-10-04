@@ -135,7 +135,7 @@ function disable() {
 	}
 	
 	// disable menu width adjustment
-	CSSadjust.handle_menu("off");
+	CSSadjust.handle_aggregate_menu("off");
 
 }
 
