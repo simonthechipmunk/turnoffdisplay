@@ -69,7 +69,7 @@ function get_mouse_ids() {
                 		// check for devices on exclude list
                 		let checkOK = 1;
 				for (let check = 0; check < exclude_devices.length; check++) {
-                			if ((lines[line].indexOf(exclude_devices[check].toString().toLowerCase()) ) != -1) {
+                			if ((lines[line].toLowerCase().indexOf(exclude_devices[check].toString().toLowerCase()) ) != -1) {
                     				checkOK = 0;	
                			 	}
 				}
