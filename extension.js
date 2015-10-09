@@ -56,7 +56,6 @@ const Settings = Utils._getSettingsSchema();
 
 
 // define global variables
-var mousepointerIDs = new Array();
 let menuitem, button, systemMenu, menuSettings, keybindSettings, handlemenumodeSettings, fixmenuwidthSettings;
 let eventKeybind=null;
 let eventXsetwatch=null;
@@ -266,7 +265,7 @@ function _SetKeybinding(set) {
 function disable_mouse() {
 // disable mouse pointers and watch for display revoke	
 	
-	mousepointerIDs = Xinput.get_mouse_ids();
+	let mousepointerIDs = Xinput.get_mouse_ids();
 	Xinput.switch_devices("off", mousepointerIDs);
 	
 	// check monitor status periodically
