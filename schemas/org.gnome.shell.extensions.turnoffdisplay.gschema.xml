@@ -1,7 +1,7 @@
 <schemalist>
     <schema id="org.gnome.shell.extensions.turnoffdisplay" path="/org/gnome/shell/extensions/turnoffdisplay/">
         <key name="integrate" type="b">
-            <default>false</default>
+            <default>true</default>
             <summary>Round Button</summary>
             <description>Sets the button to either be a separate item or add it to the shutdown/lock controls</description>
         </key>

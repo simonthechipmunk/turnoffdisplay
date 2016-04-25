@@ -27,11 +27,7 @@ const Main = imports.ui.main;
 let menuChangedAdd, menuChangedRem;
 
 let aggregateMenu = Main.panel.statusArea['aggregateMenu'];
-
 let aggregateMenuWidth = aggregateMenu.menu.actor.get_width();
-let dummyButton = aggregateMenu._system._createActionButton('system-shutdown-symbolic', "dummy");
-let sysButtonWidth = dummyButton.width;
-
 
 
 
@@ -42,8 +38,6 @@ function handle_aggregate_menu(mode, width) {
 
 	if(mode == "auto" && !menuChangedAdd && !menuChangedRem) {
 	
-		// initial menu adjustment
-		checkAggregatemenuwidth();
 		
 		// monitor changes in the system area
 		menuChangedAdd = aggregateMenu._system._actionsItem.actor.connect('actor_added', function() { 
@@ -55,6 +49,9 @@ function handle_aggregate_menu(mode, width) {
 			
 			checkAggregatemenuwidth();							
 		});
+		
+		// initial menu adjustment
+		checkAggregatemenuwidth();
 
 	}
 
@@ -62,14 +59,14 @@ function handle_aggregate_menu(mode, width) {
 	else if(mode == "fixed" && width >= aggregateMenuWidth) {
 		// set menu to fixed size
 		disconnect_all();		
-		aggregateMenu.menu.actor.width = width;
+		aggregateMenu.menu.actor.set_width(width);
 	}
 
 	
 	else if(mode == "off")  {
 		// reset menu to original size
-		disconnect_all();		
-		aggregateMenu.menu.actor.width = aggregateMenuWidth;
+		disconnect_all();
+		aggregateMenu.menu.actor.set_width(aggregateMenuWidth);
 	}
 
 	
@@ -82,18 +79,23 @@ function handle_aggregate_menu(mode, width) {
 function checkAggregatemenuwidth() {
 // run menu width adjustment if necessary
 
-	let calcWidth = aggregateMenuWidth;
+
 	let actionChildren = aggregateMenu._system._actionsItem.actor.get_children();
-	var i = 0;
-	while ( i < (actionChildren.length - 6)) {
-			
-			i++;
-			calcWidth += sysButtonWidth;
+	let allButtonWidth = actionChildren[1].get_width();
+	
+	//calculate new width
+	for each (let button in actionChildren){
+		allButtonWidth += button.get_width();
 	}
+
 	// change the menu width
-	if(aggregateMenu.menu.actor.get_width() != calcWidth) {
-		aggregateMenu.menu.actor.width = calcWidth;
-	}	
+	if(aggregateMenuWidth < allButtonWidth){
+		aggregateMenu.menu.actor.set_width(allButtonWidth);
+	}
+	else if (aggregateMenu.menu.actor.get_width() != aggregateMenuWidth){
+		aggregateMenu.menu.actor.set_width(aggregateMenuWidth);
+	}
+		
 }
 
 

@@ -59,6 +59,7 @@ const Settings = Utils._getSettingsSchema();
 let menuitem, button, systemMenu, menuSettings, keybindSettings, handlemenumodeSettings, fixmenuwidthSettings;
 let eventKeybind=null;
 let eventXsetwatch=null;
+let eventStartup=null;
 
 
 
@@ -85,6 +86,18 @@ function enable() {
 	
 	// start menu width adjustment
 	CSSadjust.handle_aggregate_menu(Prefs._getHandleMenuMode(), Prefs._getFixMenuWidth() );
+	
+	
+	
+	// TODO:BUG something is really screwed up here... the get_width() method of any system-area button will return wrong values until
+	// the shell is running for at least a few seconds. For now calling the adjustment method 5 seconds into operation is the only thing
+	// that actually helps. Since I'm already 2 weeks late for the 3.20 release because of that this shit is now going upstream...*sigh*
+	eventStartup = GLib.timeout_add(0, 5000, function() {
+	
+		if(Prefs._getHandleMenuMode() == "auto" && ShellVersion[1] <= 16) CSSadjust.checkAggregatemenuwidth();
+		return false;            
+	});
+		
 
 	// connect to signals "preference changed"
 	menuSettings = Settings.connect('changed::integrate', function() { 
@@ -133,6 +146,10 @@ function disable() {
 		Mainloop.source_remove(eventXsetwatch);
 	}
 	
+	if(eventStartup) {
+		Mainloop.source_remove(eventStartup);
+	}
+
 	// disable menu width adjustment
 	CSSadjust.handle_aggregate_menu("off");
 
@@ -240,7 +257,7 @@ function _SetKeybinding(set) {
 		if (ShellVersion[1] <= 14 ) {
 		mode = Shell.KeyBindingMode.NORMAL;
 		}
-		else if (ShellVersion[1] <= 18) {
+		else{
 		mode = Shell.ActionMode.NORMAL;
 		}
 
@@ -279,12 +296,10 @@ function disable_mouse() {
 	               	if (lines.indexOf('Monitor is On') != -1) {
                      		Xinput.switch_devices("on", mousepointerIDs);
                      		return false;	
-            		}
-            		
-            		else {
-            			return true;
-            		}
+            		}            		
         	}
+        	
+        	return true;
         			
 	});
 	
