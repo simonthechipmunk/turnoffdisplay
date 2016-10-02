@@ -105,7 +105,8 @@ function enable() {
 		_MenuEntry(true);
 	});
 		
-	keybindSettings = Settings.connect('changed::keybinding', function() { 
+	keybindSettings = Settings.connect('changed::turnoffdisplay-keybinding', function() {
+		_SetKeybinding(false);
 		_SetKeybinding(true);	
 	});
 	
