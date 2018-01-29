@@ -232,7 +232,11 @@ function _DisplayOff() {
 
 	//close the menu
 	systemMenu.menu.itemActivated();
-    _DisplayOffXWindows();
+    if (GLib.getenv('XDG_SESSION_TYPE') == 'wayland') {
+        _DisplayOffWayland();
+    } else {
+        _DisplayOffXWindows();
+    }
 		
 }
 
