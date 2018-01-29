@@ -232,6 +232,11 @@ function _DisplayOff() {
 
 	//close the menu
 	systemMenu.menu.itemActivated();
+    _DisplayOffXWindows();
+		
+}
+
+function _DisplayOffXWindows() {
 	//use xset to disable the screen
 	Util.spawn(['xset','dpms','force','off']);  
 	 
@@ -239,7 +244,6 @@ function _DisplayOff() {
 	if(Prefs._getHandleMouse() ) {
 		disable_mouse();
 	}
-		
 }
 
 
