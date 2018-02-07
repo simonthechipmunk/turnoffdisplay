@@ -1,5 +1,5 @@
 { 
-  "description": "Adds a button to the status menu to turn off the screen.\n\n(requires 'xset' and 'xinput' (xorg) . This extension is not compatible with wayland.)", 
+  "description": "Adds a button to the status menu to turn off the screen.\n\n(requires 'xset' and 'xinput' (xorg). On wayland it instead activates the screen saver. So make sure it is configured appropriately.)",
   "name": "Turn off Display", 
   "settings-schema": "org.gnome.shell.extensions.turnoffdisplay", 
   "shell-version": [
