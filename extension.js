@@ -232,11 +232,11 @@ function _DisplayOff() {
 
 	//close the menu
 	systemMenu.menu.itemActivated();
-    if (GLib.getenv('XDG_SESSION_TYPE') == 'wayland') {
-        _DisplayOffWayland();
-    } else {
-        _DisplayOffXWindows();
-    }
+	if (GLib.getenv('XDG_SESSION_TYPE') == 'wayland') {
+		_DisplayOffWayland();
+	} else {
+		_DisplayOffXWindows();
+	}
 	 
 	// disable external mice if set in the preferences
 	if(Prefs._getHandleMouse() ) {
@@ -251,8 +251,8 @@ function _DisplayOffXWindows() {
 
 function _DisplayOffWayland() {
 	Util.spawn(['dbus-send', '--session', '--dest=org.gnome.ScreenSaver',
-                '--type=method_call', '/org/gnome/ScreenSaver',
-                'org.gnome.ScreenSaver.SetActive', 'boolean:true']);  
+	            '--type=method_call', '/org/gnome/ScreenSaver',
+	            'org.gnome.ScreenSaver.SetActive', 'boolean:true']);  
 }
 
 
