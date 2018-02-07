@@ -237,17 +237,16 @@ function _DisplayOff() {
     } else {
         _DisplayOffXWindows();
     }
-		
-}
-
-function _DisplayOffXWindows() {
-	//use xset to disable the screen
-	Util.spawn(['xset','dpms','force','off']);  
 	 
 	// disable external mice if set in the preferences
 	if(Prefs._getHandleMouse() ) {
 		disable_mouse();
 	}
+}
+
+function _DisplayOffXWindows() {
+	//use xset to disable the screen
+	Util.spawn(['xset','dpms','force','off']);  
 }
 
 function _DisplayOffWayland() {
