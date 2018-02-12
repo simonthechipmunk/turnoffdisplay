@@ -1,0 +1,87 @@
+# Translation template for "Turn off Display".
+# Copyright (C) 2015 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the extension package.
+# Simon Junga <simonthechipmunk at gmx.de>, 2015.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-10-04 15:08+0200\n"
+"PO-Revision-Date: 2015-03-28 17:48+0100\n"
+"Last-Translator: Simon <simon@simon-shell>\n"
+"Language-Team: English\n"
+"Language: en_EN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: extension.js:163 extension.js:177
+msgid "Display Off"
+msgstr "Display Off"
+
+#: prefs.js:80
+msgid "Integrate into System Controls (Round Buttons)"
+msgstr "Integrate into System Controls (Round Buttons)"
+
+#: prefs.js:81
+msgid "Adds a round button instead of a separate entry in the Systemmenu"
+msgstr "Adds a round button instead of a separate entry in the Systemmenu"
+
+#: prefs.js:82
+msgid "Disable Mouse when Screen is turned Off"
+msgstr "Disable Mouse when Screen is turned Off"
+
+#: prefs.js:83
+msgid ""
+"Automatically disable all external mouse pointers to prevent the screen from "
+"turning on accidentally."
+msgstr ""
+"Automatically disable all external mouse pointers to prevent the screen from "
+"turning on accidentally."
+
+#: prefs.js:86
+msgid "Menu Width adjustment Mode"
+msgstr "Menu Width adjustment Mode"
+
+#: prefs.js:86
+msgid "Select the mode for handling the width of the Main Menu."
+msgstr "Select the mode for handling the width of the Main Menu."
+
+#: prefs.js:87
+msgid "Off"
+msgstr "Off"
+
+#: prefs.js:87
+msgid "Automatic"
+msgstr "Automatic"
+
+#: prefs.js:87
+msgid "Fixed"
+msgstr "Fixed"
+
+#: prefs.js:89
+msgid "Fixed menu size in px."
+msgstr "Fixed menu size in px."
+
+#: prefs.js:93
+msgid "Custom Keybinding"
+msgstr "Custom Keybinding"
+
+#: prefs.js:94
+msgid ""
+"Set a Keybinding to turn off the Display (Examples: F12, <Super>space, "
+"<Ctrl><Alt><Shift>w)"
+msgstr ""
+"Set a Keybinding to turn off the Display (Examples: F12, <Super>space, "
+"<Ctrl><Alt><Shift>w)"
+
+#: prefs.js:95
+msgid "Keybinding is enabled"
+msgstr "Keybinding is enabled"
+
+#: prefs.js:96
+msgid "Keybinding is disabled. Set a valid Shortcut to enable it"
+msgstr "Keybinding is disabled. Set a valid Shortcut to enable it"

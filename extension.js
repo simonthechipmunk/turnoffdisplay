@@ -194,7 +194,8 @@ function _MenuEntry(set) {
 			button = systemMenu._createActionButton('disable-display-symbolic', _("Display Off"));
 			button.connect('clicked', _DisplayOff);
 			// add the menuentry to the menu
-			systemMenu._actionsItem.actor.insert_child_at_index(button, 4);
+			//systemMenu._actionsItem.actor.insert_child_at_index(button, 4);
+			systemMenu._actionsItem.actor.add(button, { expand: true, x_fill: false });
 		}
 
 	}
