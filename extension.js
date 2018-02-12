@@ -233,14 +233,27 @@ function _DisplayOff() {
 
 	//close the menu
 	systemMenu.menu.itemActivated();
-	//use xset to disable the screen
-	Util.spawn(['xset','dpms','force','off']);  
+	if (GLib.getenv('XDG_SESSION_TYPE') == 'wayland') {
+		_DisplayOffWayland();
+	} else {
+		_DisplayOffXWindows();
+	}
 	 
 	// disable external mice if set in the preferences
 	if(Prefs._getHandleMouse() ) {
 		disable_mouse();
 	}
-		
+}
+
+function _DisplayOffXWindows() {
+	//use xset to disable the screen
+	Util.spawn(['xset','dpms','force','off']);  
+}
+
+function _DisplayOffWayland() {
+	Util.spawn(['dbus-send', '--session', '--dest=org.gnome.ScreenSaver',
+	            '--type=method_call', '/org/gnome/ScreenSaver',
+	            'org.gnome.ScreenSaver.SetActive', 'boolean:true']);  
 }
 
 
