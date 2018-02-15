@@ -1,7 +1,7 @@
 # Translation template for "Turn off Display".
 # Copyright (C) 2015 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extension package.
-# Simon Junga <simonthechipmunk at gmx.de>, 2015.
+# Simon Junga <simonthechipmunk@gmx.de>, 2015.
 #
 #, fuzzy
 msgid ""
@@ -18,23 +18,23 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: extension.js:163 extension.js:177
+#: extension.js:181 extension.js:195
 msgid "Display Off"
 msgstr "Display Off"
 
-#: prefs.js:80
+#: prefs.js:84
 msgid "Integrate into System Controls (Round Buttons)"
 msgstr "Integrate into System Controls (Round Buttons)"
 
-#: prefs.js:81
+#: prefs.js:85
 msgid "Adds a round button instead of a separate entry in the Systemmenu"
 msgstr "Adds a round button instead of a separate entry in the Systemmenu"
 
-#: prefs.js:82
+#: prefs.js:88 prefs.js:95 prefs.js:100
 msgid "Disable Mouse when Screen is turned Off"
 msgstr "Disable Mouse when Screen is turned Off"
 
-#: prefs.js:83
+#: prefs.js:89
 msgid ""
 "Automatically disable all external mouse pointers to prevent the screen from "
 "turning on accidentally."
@@ -42,35 +42,45 @@ msgstr ""
 "Automatically disable all external mouse pointers to prevent the screen from "
 "turning on accidentally."
 
-#: prefs.js:86
+#: prefs.js:96
+msgid "Disabling mouse input automatically is not yet supported with Wayland."
+msgstr ""
+
+#: prefs.js:101
+msgid ""
+"Disabling mouse input automatically requires Xinput. Please install it and "
+"restart Gnome-Shell."
+msgstr ""
+
+#: prefs.js:109
 msgid "Menu Width adjustment Mode"
 msgstr "Menu Width adjustment Mode"
 
-#: prefs.js:86
+#: prefs.js:109
 msgid "Select the mode for handling the width of the Main Menu."
 msgstr "Select the mode for handling the width of the Main Menu."
 
-#: prefs.js:87
+#: prefs.js:110
 msgid "Off"
 msgstr "Off"
 
-#: prefs.js:87
+#: prefs.js:110
 msgid "Automatic"
 msgstr "Automatic"
 
-#: prefs.js:87
+#: prefs.js:110
 msgid "Fixed"
 msgstr "Fixed"
 
-#: prefs.js:89
+#: prefs.js:112
 msgid "Fixed menu size in px."
 msgstr "Fixed menu size in px."
 
-#: prefs.js:93
+#: prefs.js:116
 msgid "Custom Keybinding"
 msgstr "Custom Keybinding"
 
-#: prefs.js:94
+#: prefs.js:117
 msgid ""
 "Set a Keybinding to turn off the Display (Examples: F12, <Super>space, "
 "<Ctrl><Alt><Shift>w)"
@@ -78,10 +88,10 @@ msgstr ""
 "Set a Keybinding to turn off the Display (Examples: F12, <Super>space, "
 "<Ctrl><Alt><Shift>w)"
 
-#: prefs.js:95
+#: prefs.js:118
 msgid "Keybinding is enabled"
 msgstr "Keybinding is enabled"
 
-#: prefs.js:96
+#: prefs.js:119
 msgid "Keybinding is disabled. Set a valid Shortcut to enable it"
 msgstr "Keybinding is disabled. Set a valid Shortcut to enable it"

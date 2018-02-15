@@ -17,66 +17,76 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: extension.js:163 extension.js:177
+#: extension.js:181 extension.js:195
 msgid "Display Off"
 msgstr ""
 
-#: prefs.js:80
+#: prefs.js:84
 msgid "Integrate into System Controls (Round Buttons)"
 msgstr ""
 
-#: prefs.js:81
+#: prefs.js:85
 msgid "Adds a round button instead of a separate entry in the Systemmenu"
 msgstr ""
 
-#: prefs.js:82
+#: prefs.js:88 prefs.js:95 prefs.js:100
 msgid "Disable Mouse when Screen is turned Off"
 msgstr ""
 
-#: prefs.js:83
+#: prefs.js:89
 msgid ""
 "Automatically disable all external mouse pointers to prevent the screen from "
 "turning on accidentally."
 msgstr ""
 
-#: prefs.js:86
+#: prefs.js:96
+msgid "Disabling mouse input automatically is not yet supported with Wayland."
+msgstr ""
+
+#: prefs.js:101
+msgid ""
+"Disabling mouse input automatically requires Xinput. Please install it and "
+"restart Gnome-Shell."
+msgstr ""
+
+#: prefs.js:109
 msgid "Menu Width adjustment Mode"
 msgstr ""
 
-#: prefs.js:86
-msgid "Select the mode for handling the width of the Main Menu"
+#: prefs.js:109
+msgid "Select the mode for handling the width of the Main Menu."
 msgstr ""
 
-#: prefs.js:87
+#: prefs.js:110
 msgid "Off"
 msgstr ""
 
-#: prefs.js:87
+#: prefs.js:110
 msgid "Automatic"
 msgstr ""
 
-#: prefs.js:87
+#: prefs.js:110
 msgid "Fixed"
 msgstr ""
 
-#: prefs.js:89
+#: prefs.js:112
 msgid "Fixed menu size in px."
 msgstr ""
 
-#: prefs.js:93
+#: prefs.js:116
 msgid "Custom Keybinding"
 msgstr ""
 
-#: prefs.js:94
+#: prefs.js:117
 msgid ""
 "Set a Keybinding to turn off the Display (Examples: F12, <Super>space, "
 "<Ctrl><Alt><Shift>w)"
 msgstr ""
 
-#: prefs.js:95
+#: prefs.js:118
 msgid "Keybinding is enabled"
 msgstr ""
 
-#: prefs.js:96
+#: prefs.js:119
 msgid "Keybinding is disabled. Set a valid Shortcut to enable it"
 msgstr ""

@@ -1,7 +1,7 @@
 # Translation template for "Turn off Display".
 # Copyright (C) 2015 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extension package.
-# Simon Junga <simonthechipmunk at gmx.de>, 2015.
+# Simon Junga <simonthechipmunk@gmx.de>, 2015.
 #
 #, fuzzy
 msgid ""
@@ -18,57 +18,69 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: extension.js:163 extension.js:177
+#: extension.js:181 extension.js:195
 msgid "Display Off"
 msgstr "Bildschirm Aus"
 
-#: prefs.js:80
+#: prefs.js:84
 msgid "Integrate into System Controls (Round Buttons)"
 msgstr "Im Systembereich anzeigen (Runde Schaltflächen)"
 
-#: prefs.js:81
+#: prefs.js:85
 msgid "Adds a round button instead of a separate entry in the Systemmenu"
 msgstr "Erstellt eine runde Schaltfläche anstatt eines separaten Menüeintrags"
 
-#: prefs.js:82
+#: prefs.js:88 prefs.js:95 prefs.js:100
 msgid "Disable Mouse when Screen is turned Off"
 msgstr "Maus deaktivieren wenn der Bildschirm aus ist"
 
-#: prefs.js:83
+#: prefs.js:89
 msgid ""
 "Automatically disable all external mouse pointers to prevent the screen from "
 "turning on accidentally."
-msgstr "Automatisch alle angeschlossenen Zeigegeräte (Mäuse) deaktivieren um ein versehentliches Einschalten des Bildschirms zu verhindern."
+msgstr ""
+"Automatisch alle angeschlossenen Zeigegeräte (Mäuse) deaktivieren um ein "
+"versehentliches Einschalten des Bildschirms zu verhindern."
 
-#: prefs.js:86
+#: prefs.js:96
+msgid "Disabling mouse input automatically is not yet supported with Wayland."
+msgstr "Automatisches Abschalten angeschlossener Zeigegeräte (Mäuse) wird unter Wayland zur Zeit nicht unterstützt."
+
+#: prefs.js:101
+msgid ""
+"Disabling mouse input automatically requires Xinput. Please install it and "
+"restart Gnome-Shell."
+msgstr "Zum automatischen Abschalten angeschlossener Zeigegeräte (Mäuse) wird Xinput benötigt. Bitte installieren Sie es und starten Gnome-Shell neu."
+
+#: prefs.js:109
 msgid "Menu Width adjustment Mode"
 msgstr "Anpassung der Menübreite"
 
-#: prefs.js:86
+#: prefs.js:109
 msgid "Select the mode for handling the width of the Main Menu."
 msgstr "Modusauswahl zur Breitenanpassung des Hauptmenüs."
 
-#: prefs.js:87
+#: prefs.js:110
 msgid "Off"
 msgstr "Aus"
 
-#: prefs.js:87
+#: prefs.js:110
 msgid "Automatic"
 msgstr "Automatisch"
 
-#: prefs.js:87
+#: prefs.js:110
 msgid "Fixed"
 msgstr "Manuell"
 
-#: prefs.js:89
+#: prefs.js:112
 msgid "Fixed menu size in px."
 msgstr "Feste Menübreite in px."
 
-#: prefs.js:93
+#: prefs.js:116
 msgid "Custom Keybinding"
 msgstr "Eigene Tastenkombination"
 
-#: prefs.js:94
+#: prefs.js:117
 msgid ""
 "Set a Keybinding to turn off the Display (Examples: F12, <Super>space, "
 "<Ctrl><Alt><Shift>w)"
@@ -76,11 +88,11 @@ msgstr ""
 "Tastenkürzel um den Bildschirm auszuschalten (Beispiele: F12, <Super>space, "
 "<Ctrl><Alt><Shift>w)"
 
-#: prefs.js:95
+#: prefs.js:118
 msgid "Keybinding is enabled"
 msgstr "Tastenkürzel ist aktiv"
 
-#: prefs.js:96
+#: prefs.js:119
 msgid "Keybinding is disabled. Set a valid Shortcut to enable it"
 msgstr ""
 "Tastenkürzel ist inaktiv. Zum Aktivieren gültige Tastenkombination eingeben"

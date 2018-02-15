@@ -14,13 +14,17 @@ const Gio  = imports.gi.Gio;
 const Gtk  = imports.gi.Gtk;
 const Lang = imports.lang;
 
+// utilities for external programs and command line
+const GLib = imports.gi.GLib;
+
 // translations
 const Gettext = imports.gettext.domain('turnoffdisplay');
 const _ = Gettext.gettext;
 
 // own imports
 const Me   = imports.misc.extensionUtils.getCurrentExtension();
-const Utils = Me.imports.utils; 
+const Utils = Me.imports.utils;
+const Xinput = Me.imports.xinput_mouse;
 
 
 
@@ -79,9 +83,28 @@ function buildPrefsWidget() {
 	// add items to the widget frame
 	frame.add( _createSwitchbox( _("Integrate into System Controls (Round Buttons)"), 
 		_("Adds a round button instead of a separate entry in the Systemmenu"), _getIntegrate, _setIntegrate ));
-	frame.add( _createSwitchbox( _("Disable Mouse when Screen is turned Off"), 
-		_("Automatically disable all external mouse pointers to prevent the screen from turning on accidentally."), _getHandleMouse, _setHandleMouse ));
 		
+	let box;
+	let text = _("Disable Mouse when Screen is turned Off");
+	let tooltip = _("Automatically disable all external mouse pointers to prevent the screen from turning on accidentally.");
+	let sensitive = true;
+	
+	
+	
+	if(GLib.getenv('XDG_SESSION_TYPE') == 'wayland'){
+		text = _("Disable Mouse when Screen is turned Off");
+		tooltip = _("Disabling mouse input automatically is not yet supported with Wayland.");
+		sensitive = false;
+	}
+	else if(!Xinput.xinput_is_installed){
+		text = _("Disable Mouse when Screen is turned Off");
+		tooltip = _("Disabling mouse input automatically requires Xinput. Please install it and restart Gnome-Shell.");
+		sensitive = false;
+	}
+			
+	box = _createSwitchbox( text, tooltip, _getHandleMouse, _setHandleMouse );
+	box.set_sensitive(sensitive);
+	frame.add(box);
 		
 	frame.add( _createComboBox( _("Menu Width adjustment Mode"), _("Select the mode for handling the width of the Main Menu."),
 			{'off': _("Off"), 'auto' : _("Automatic"), 'fixed' : _("Fixed")}, _getHandleMenuMode, _setHandleMenuMode ));
@@ -109,8 +132,8 @@ function _createSwitchbox(text, tooltip, getFunction, setFunction) {
 // create box with toggle switch
 	let box = new Gtk.Box({ orientation: Gtk.Orientation.HORIZONTAL, margin: 5});
 	let label = new Gtk.Label({ label: text, xalign: 0, tooltip_text: tooltip });
-	let toggleswitch = new Gtk.Switch({ active: getFunction() });
-
+	let toggleswitch = new Gtk.Switch({ active: getFunction(), tooltip_text: tooltip });
+	
 	// connect to "toggled" emit signal
 	toggleswitch.connect('notify::active', setFunction);
 
@@ -128,7 +151,7 @@ function _createComboBox(text, tooltip, values, getFunction, setFunction) {
 // create box with combo selection field
 	let box = new Gtk.Box({ orientation: Gtk.Orientation.HORIZONTAL, margin: 5});
 	let label = new Gtk.Label({ label: text, xalign: 0, tooltip_text: tooltip });
-	let widget = new Gtk.ComboBoxText();
+	let widget = new Gtk.ComboBoxText({ tooltip_text: tooltip });
 	for (id in values) {
 		widget.append(id, values[id]);
 	}
@@ -184,7 +207,7 @@ function _createKeybindbox(text, tooltip, secIconOK, secIcontooltipOK, secIconNO
 // create box with keybinding entry
 	let box = new Gtk.Box({ orientation: Gtk.Orientation.HORIZONTAL, margin: 5});
 	let label = new Gtk.Label({ label: text, xalign: 0, tooltip_text: tooltip });
-	let textbox = new Gtk.Entry({ text : getFunction() });
+	let textbox = new Gtk.Entry({ text : getFunction(), tooltip_text: tooltip });
 	updateTextbox();
 	// connect to "text-changed" emit signal and check for valid keybinding
     	textbox.connect('changed', function() { updateTextbox(); });

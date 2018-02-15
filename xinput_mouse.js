@@ -25,6 +25,8 @@ const GLib = imports.gi.GLib;
 
 
 // define global variables
+let xinput_is_installed = xinput_installed();
+
 const exclude_devices = new Array('touchpad','glidepoint','fingersensingpad', 'bcm5974','trackpad','smartpad',
 					'trackpoint','accu point','trackstick', 'touchstyk','pointing stick','dualpoint stick',
 						'touchscreen', 'maxtouch', 'touch',
@@ -38,7 +40,7 @@ const exclude_devices = new Array('touchpad','glidepoint','fingersensingpad', 'b
 function get_pointer_ids() {
 	// get all IDs for devices that match the property "pointing device"
 	var pointerIDs = new Array();
-        let lines = GLib.spawn_command_line_sync('xinput --list');
+        let lines = execute_sync('xinput --list');
         if (lines) {
 		lines = lines[1].toString().split('\n');
 	    	let y = 0;
@@ -60,7 +62,7 @@ function get_pointer_ids() {
 function get_mouse_ids() {
 	// get all IDs for devices that match the property "pointing device" and are not listed in exclude_devices
 	var mouseIDs = new Array();
-        let lines = GLib.spawn_command_line_sync('xinput --list');
+        let lines = execute_sync('xinput --list');
         if (lines) {
 		lines = lines[1].toString().split('\n');
 	    	let y = 0;
@@ -93,13 +95,37 @@ function switch_devices(mode, deviceIDs) {
 	// enable/disable devices by ID
 	for each (var device in deviceIDs) {
 		if(mode == "on") {
-			GLib.spawn_command_line_sync('xinput --enable ' + device);
+			execute_sync('xinput --enable ' + device);
 		}
 		
 		else if(mode == "off") {
-			GLib.spawn_command_line_sync('xinput --disable ' + device);
+			execute_sync('xinput --disable ' + device);
 		}
 	}
 	
+}
+
+
+
+
+function execute_sync(command) {
+	//run a command on the command line
+	try {
+		return GLib.spawn_command_line_sync(command);
+	}
+	catch (err) {
+		return false;
+	}
+}
+
+
+
+
+function xinput_installed(){
+	//check if xinput is present
+	if(execute_sync('xinput --list')){
+		return true;
+	}
+	return false;
 }
 

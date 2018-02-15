@@ -92,8 +92,9 @@ function enable() {
 	// TODO:BUG something is really screwed up here... the get_width() method of any system-area button will return wrong values until
 	// the shell is running for at least a few seconds. For now calling the adjustment method 5 seconds into operation is the only thing
 	// that actually helps. Since I'm already 2 weeks late for the 3.20 release because of that this shit is now going upstream...*sigh*
+	//eventStartup = GLib.idle_add(GLib.PRIORITY_LOW, function() {
 	eventStartup = GLib.timeout_add(0, 5000, function() {
-	
+
 		if(Prefs._getHandleMenuMode() == "auto" && ShellVersion[1] <= 16) CSSadjust.checkAggregatemenuwidth();
 		return false;            
 	});
@@ -237,12 +238,13 @@ function _DisplayOff() {
 		_DisplayOffWayland();
 	} else {
 		_DisplayOffXWindows();
+		
+		// disable external mice if set in the preferences
+		if(Prefs._getHandleMouse() && Xinput.xinput_is_installed) {
+			disable_mouse();
+		}
 	}
 	 
-	// disable external mice if set in the preferences
-	if(Prefs._getHandleMouse() ) {
-		disable_mouse();
-	}
 }
 
 function _DisplayOffXWindows() {
