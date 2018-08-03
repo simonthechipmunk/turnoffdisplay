@@ -84,7 +84,7 @@ function checkAggregatemenuwidth() {
 	let allButtonWidth = actionChildren[1].get_width()*2;
 	
 	//calculate new width
-	for each (let button in actionChildren){
+	for (let button of actionChildren) {
 		allButtonWidth += button.get_width();
 	}
 
