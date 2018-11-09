@@ -93,7 +93,7 @@ function get_mouse_ids() {
 
 function switch_devices(mode, deviceIDs) {
 	// enable/disable devices by ID
-	for each (var device in deviceIDs) {
+	for (let device of deviceIDs) {
 		if(mode == "on") {
 			execute_sync('xinput --enable ' + device);
 		}
