@@ -26,6 +26,7 @@ const St = imports.gi.St;
 const Main = imports.ui.main;
 const Meta = imports.gi.Meta;
 const Shell = imports.gi.Shell;
+const Gio = imports.gi.Gio;
 const Mainloop = imports.mainloop;
 
 // menu items
@@ -177,7 +178,7 @@ function _MenuEntry(set) {
 
 			// create separate menu button
 	    		menuitem = new PopupMenu.PopupBaseMenuItem({ activate: true });
-			let icon = new St.Icon({ icon_name: 'disable-display-symbolic', style_class: 'popup-menu-icon' });
+			let icon = new St.Icon({ gicon: Gio.icon_new_for_string(Me.path + '/icons/disable-display-symbolic.svg'), style_class: 'popup-menu-icon' });
 			let text = new St.Label({ text: _("Display Off"), style_class: "sm-label" });
 			menuitem.actor.add(icon);
 			menuitem.actor.add(text);
@@ -192,7 +193,8 @@ function _MenuEntry(set) {
 			systemMenu = Main.panel.statusArea['aggregateMenu']._system;
 
 			// create round button in system control area
-			button = systemMenu._createActionButton('disable-display-symbolic', _("Display Off"));
+			button = systemMenu._createActionButton('', _("Display Off"));
+			button.child.gicon = Gio.icon_new_for_string(Me.path + '/icons/disable-display-symbolic.svg');
 			button.connect('clicked', _DisplayOff);
 			// add the menuentry to the menu
 			//systemMenu._actionsItem.actor.insert_child_at_index(button, 4);
