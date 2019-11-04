@@ -196,7 +196,7 @@ function _MenuEntry(set) {
 			button.connect('clicked', _DisplayOff);
 			// add the menuentry to the menu
 			//systemMenu._actionsItem.actor.insert_child_at_index(button, 4);
-			systemMenu._actionsItem.actor.add(button, { expand: true, x_fill: false });
+			systemMenu.menu.actor.add(button, { expand: true, x_fill: false });
 		}
 
 	}
@@ -213,7 +213,7 @@ function _MenuEntry(set) {
 		else {
 
 			// remove the button
-			systemMenu._actionsItem.actor.remove_child(button);
+			systemMenu.menu.actor.remove_child(button);
 		}
 
 		// reset menuitem/button variable
