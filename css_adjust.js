@@ -40,12 +40,12 @@ function handle_aggregate_menu(mode, width) {
 	
 		
 		// monitor changes in the system area
-		menuChangedAdd = aggregateMenu._system._actionsItem.actor.connect('actor_added', function() { 
+		menuChangedAdd = aggregateMenu._system.buttonGroup.connect('actor_added', function() {
 				
 			checkAggregatemenuwidth(); 
 		});
 		
-		menuChangedRem = aggregateMenu._system._actionsItem.actor.connect('actor_removed', function() { 
+		menuChangedRem = aggregateMenu._system.buttonGroup.connect('actor_removed', function() {
 			
 			checkAggregatemenuwidth();							
 		});
@@ -80,7 +80,7 @@ function checkAggregatemenuwidth() {
 // run menu width adjustment if necessary
 
 
-	let actionChildren = aggregateMenu._system._actionsItem.actor.get_children();
+	let actionChildren = aggregateMenu._system.buttonGroup.get_children();
 	let allButtonWidth = actionChildren[1].get_width()*2;
 	
 	//calculate new width
