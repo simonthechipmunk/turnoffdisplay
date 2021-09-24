@@ -78,10 +78,10 @@ function init() {
 
 function buildPrefsWidget() {
 // build the Gtk preferences widget
-	let frame = new Gtk.Box({orientation: Gtk.Orientation.VERTICAL, border_width: 10, margin: 20});
+	let frame = new Gtk.Box({orientation: Gtk.Orientation.VERTICAL, margin_top: 20, margin_end: 20, margin_bottom: 20, margin_start: 20});
 
 	// add items to the widget frame
-	frame.add( _createSwitchbox( _("Integrate into System Controls (Round Buttons)"), 
+	frame.append( _createSwitchbox( _("Integrate into System Controls (Round Buttons)"), 
 		_("Adds a round button instead of a separate entry in the Systemmenu"), _getIntegrate, _setIntegrate ));
 		
 	let box;
@@ -104,20 +104,20 @@ function buildPrefsWidget() {
 			
 	box = _createSwitchbox( text, tooltip, _getHandleMouse, _setHandleMouse );
 	box.set_sensitive(sensitive);
-	frame.add(box);
+	frame.append(box);
 		
-	frame.add( _createComboBox( _("Menu Width adjustment Mode"), _("Select the mode for handling the width of the Main Menu."),
+	frame.append( _createComboBox( _("Menu Width adjustment Mode"), _("Select the mode for handling the width of the Main Menu."),
 			{'off': _("Off"), 'auto' : _("Automatic"), 'fixed' : _("Fixed")}, _getHandleMenuMode, _setHandleMenuMode ));
 			
-	frame.add( _createAdjustBox( "", _("Fixed menu size in px."),
+	frame.append( _createAdjustBox( "", _("Fixed menu size in px."),
 			360.0, 1200.0, 1.0, _getFixMenuWidth, _setFixMenuWidth ));
 	
 					
-	frame.add( _createKeybindbox( _("Custom Keybinding"), 
+	frame.append( _createKeybindbox( _("Custom Keybinding"), 
 		_("Set a Keybinding to turn off the Display (Examples: F12, <Super>space, <Ctrl><Alt><Shift>w)"),
 		"emblem-ok-symbolic", _("Keybinding is enabled"),
 		"window-close-symbolic", _("Keybinding is disabled. Set a valid Shortcut to enable it"), _getKeybinding, _setKeybinding ));	
-	frame.show_all();
+    frame.show();
 	return frame;
 }
 
@@ -130,7 +130,7 @@ function buildPrefsWidget() {
 
 function _createSwitchbox(text, tooltip, getFunction, setFunction) {
 // create box with toggle switch
-	let box = new Gtk.Box({ orientation: Gtk.Orientation.HORIZONTAL, margin: 5});
+	let box = new Gtk.Box({ orientation: Gtk.Orientation.HORIZONTAL, margin_top: 5, margin_end: 5, margin_bottom: 5, margin_start: 5 });
 	let label = new Gtk.Label({ label: text, xalign: 0, tooltip_text: tooltip });
 	let toggleswitch = new Gtk.Switch({ active: getFunction(), tooltip_text: tooltip });
 	
@@ -138,8 +138,8 @@ function _createSwitchbox(text, tooltip, getFunction, setFunction) {
 	toggleswitch.connect('notify::active', setFunction);
 
 	//fill the box with content
-	box.pack_start(label, true, true, 0);
-	box.add(toggleswitch);
+	box.append(label, true, true, 0);
+	box.append(toggleswitch);
 
 	return box;
 }
@@ -149,7 +149,7 @@ function _createSwitchbox(text, tooltip, getFunction, setFunction) {
 
 function _createComboBox(text, tooltip, values, getFunction, setFunction) {
 // create box with combo selection field
-	let box = new Gtk.Box({ orientation: Gtk.Orientation.HORIZONTAL, margin: 5});
+	let box = new Gtk.Box({ orientation: Gtk.Orientation.HORIZONTAL, margin_top: 5, margin_end: 5, margin_bottom: 5, margin_start: 5 });
 	let label = new Gtk.Label({ label: text, xalign: 0, tooltip_text: tooltip });
 	let widget = new Gtk.ComboBoxText({ tooltip_text: tooltip });
 	for (id in values) {
@@ -162,8 +162,8 @@ function _createComboBox(text, tooltip, values, getFunction, setFunction) {
 		setFunction(combo_widget.get_active_id());
 	});
 	//fill the box with content
-	box.pack_start(label, true, true, 0);
-	box.add(widget);
+	box.append(label, true, true, 0);
+	box.append(widget);
 	return box;
 }
 
@@ -172,7 +172,7 @@ function _createComboBox(text, tooltip, values, getFunction, setFunction) {
 
 function _createAdjustBox(text, tooltip, LOWER, UPPER, INCREM, getFunction, setFunction) {
 // create box with adjust selection field
-	let box = new Gtk.Box({ orientation: Gtk.Orientation.HORIZONTAL, margin: 5});
+	let box = new Gtk.Box({ orientation: Gtk.Orientation.HORIZONTAL, margin_top: 5, margin_end: 5, margin_bottom: 5, margin_start: 5});
 	let label = new Gtk.Label({ label: text, xalign: 0, tooltip_text: tooltip });
 	let adjustbox = new Gtk.Adjustment({ lower: LOWER, step_increment: INCREM, upper: UPPER, value: 1.0 });
 	let spinbutton = new Gtk.SpinButton({ adjustment: adjustbox, digits: 0, tooltip_text: tooltip});
@@ -194,8 +194,8 @@ function _createAdjustBox(text, tooltip, LOWER, UPPER, INCREM, getFunction, setF
     		setFunction(spinbutton.value); 
     	});
 	//fill the box with content
-	box.pack_start(label, true, true, 0);
-	box.add(spinbutton, true, true, 5);
+	box.append(label, true, true, 0);
+	box.append(spinbutton, true, true, 5);
 
 	return box;
 }
@@ -205,7 +205,7 @@ function _createAdjustBox(text, tooltip, LOWER, UPPER, INCREM, getFunction, setF
 
 function _createKeybindbox(text, tooltip, secIconOK, secIcontooltipOK, secIconNOK, secIcontooltipNOK, getFunction, setFunction) {
 // create box with keybinding entry
-	let box = new Gtk.Box({ orientation: Gtk.Orientation.HORIZONTAL, margin: 5});
+	let box = new Gtk.Box({ orientation: Gtk.Orientation.HORIZONTAL, margin_top: 5, margin_end: 5, margin_bottom: 5, margin_start: 5});
 	let label = new Gtk.Label({ label: text, xalign: 0, tooltip_text: tooltip });
 	let textbox = new Gtk.Entry({ text : getFunction(), tooltip_text: tooltip });
 	updateTextbox();
@@ -231,8 +231,8 @@ function _createKeybindbox(text, tooltip, secIconOK, secIcontooltipOK, secIconNO
 
 
 	//fill the box with content
-	box.pack_start(label, true, true, 0);
-	box.add(textbox, true, true, 5);
+	box.append(label, true, true, 0);
+	box.append(textbox, true, true, 5);
 
 	return box;
 }
