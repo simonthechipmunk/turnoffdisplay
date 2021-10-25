@@ -3,7 +3,7 @@
   "name": "Turn off Display", 
   "settings-schema": "org.gnome.shell.extensions.turnoffdisplay", 
   "shell-version": [
-    "40"
+    "40", "41"
   ], 
   "url": "https://github.com/simonthechipmunk/turnoffdisplay", 
   "uuid": "turnoffdisplay@simonthechipmunk.noreply.com", 
